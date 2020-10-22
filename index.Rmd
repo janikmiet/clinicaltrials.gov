@@ -1,0 +1,79 @@
+---
+title: "Clinical trials in Finland"
+date: "`r paste0('Updated: ', Sys.time())`"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(flexdashboard)
+source("load_data.R") #
+```
+
+
+Info
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Trials
+
+```{r}
+valueBox(nrow(d), icon = "fa-medkit")
+```
+
+### Sponsors
+
+```{r}
+valueBox(length(unique(d$`Sponsor Name`)), icon = "fa-sitemap")
+```
+
+### Subjects Planned (global)
+
+```{r}
+valueBox(sum(d$`No. of Subjects Planned`, na.rm = T), icon = "fa-user")
+```
+
+### Subjects Enrolled (global)
+
+```{r}
+valueBox(sum(d$`No. of Subjects Enrolled`, na.rm = T), icon = "fa-users")
+```
+
+Row
+-----------------------------------------------------------------------
+
+
+```{r datatable}
+cols <- c("Trial Title", "Therapy Area", "Indication", "Sponsor Name", "Study Design", "Trial Phase", "Trial Status", "Trial Start Date", "Trial End Date", "Country", "Link")
+DT::datatable(d[, cols],
+              selection = c("single"),
+              rownames = FALSE, 
+              filter = 'top',
+              escape = FALSE,
+              #extensions = 'Buttons', 
+              options = list(
+                # dom = 'Bfrtip',
+                search = list(regex = TRUE, caseInsensitive = TRUE),
+                columnDefs = list(list(className = 'dt-right',  targets = "_all")),
+                pageLength = 20
+                # language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Finnish.json')
+                # dom = 'Bfrtip',
+                # buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+              ))
+```
+
+About
+=======================================================================
+
+### About this webpage
+
+We collected information of clinical trials which are currently held in Finland. Data is obtained from [GlobalData.com](https://globaldata.com/) and it is parsed, cleaned and formatted for user readable form. In case of a question, please [contact us]().
+
