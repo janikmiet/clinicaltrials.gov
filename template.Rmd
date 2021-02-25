@@ -21,12 +21,15 @@ xxx-Trial-Description-xxx
 
 ### Basic information
 
+**Official Title:** xxx-Trial-Title2-xxx </br>
 **Trial ID:** xxx-Trial-Identifier-xxx </br>
-**Trial Status:** xxx-Trial-Status-xxx </br>
+**Status:** xxx-Trial-OverallStatus-xxx </br>
+**Last Known Status:** xxx-Trial-LastKnownStatus-xxx </br>
+
 **Trial Phase:** xxx-Trial-Phase-xxx </br>
 </br>
-**Therapy Area:** xxx-Therapy-Area-xxx </br>
-**Indication:** xxx-Indication-xxx </br>
+**Keywords:** xxx-Keywords-xxx </br>
+<!-- **Indication:** xxx-Indication-xxx </br> -->
 
 ### Sponsor & Collaborator
 
@@ -40,11 +43,11 @@ xxx-Trial-Description-xxx
 ### Study
 
 **Design:** xxx-Study-Design-xxx </br>
-**Hypothesis:** xxx-Hypothesis-xxx </br>
-**Purpose:** xxx-Purpose-xxx </br>
-**Primary Objective(s):** xxx-Primary-Objective-xxx </br>
-**Secondary Objective(s):** xxx-Secondary-Objective-xxx </br>
-**Responsible Authority:** xxx-Responsible-Authority-xxx </br>
+<!-- **Hypothesis:** xxx-Hypothesis-xxx </br> -->
+<!-- **Purpose:** xxx-Purpose-xxx </br> -->
+<!-- **Primary Objective(s):** xxx-Primary-Objective-xxx </br> -->
+<!-- **Secondary Objective(s):** xxx-Secondary-Objective-xxx </br> -->
+<!-- **Responsible Authority:** xxx-Responsible-Authority-xxx </br> -->
 
 
 ### Subjects

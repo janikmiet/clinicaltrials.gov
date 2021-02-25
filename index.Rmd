@@ -32,19 +32,19 @@ valueBox(nrow(d), icon = "fa-medkit")
 ### Sponsors
 
 ```{r}
-valueBox(length(unique(d$`Sponsor Name`)), icon = "fa-sitemap")
+valueBox(length(unique(d$LeadSponsorName)), icon = "fa-sitemap")
 ```
 
-### Subjects Planned (global)
+### example&&&&Studies
 
 ```{r}
-valueBox(sum(d$`No. of Subjects Planned`, na.rm = T), icon = "fa-user")
+valueBox(1111, icon = "fa-user")
 ```
 
-### Subjects Enrolled (global)
+### example&&&&&Subjects
 
 ```{r}
-valueBox(sum(d$`No. of Subjects Enrolled`, na.rm = T), icon = "fa-users")
+valueBox(22222, icon = "fa-users")
 ```
 
 Row
@@ -52,7 +52,7 @@ Row
 
 
 ```{r datatable}
-cols <- c("Trial Title", "Therapy Area", "Indication", "Sponsor Name", "Study Design", "Trial Phase", "Trial Status", "Trial Start Date", "Trial End Date", "Country", "Link")
+cols <- c("BriefTitle", "Acronym", "OrgFullName", "StartDate", "LastKnownStatus", "OverallStatus", "Condition", "Keyword", "StudyType", "Link")
 DT::datatable(d[, cols],
               selection = c("single"),
               rownames = FALSE, 
