@@ -29,7 +29,7 @@ xxx-Trial-Description-xxx
 **Trial Phase:** xxx-Trial-Phase-xxx </br>
 </br>
 **Keywords:** xxx-Keywords-xxx </br>
-<!-- **Indication:** xxx-Indication-xxx </br> -->
+
 
 ### Sponsor & Collaborator
 
@@ -56,9 +56,11 @@ xxx-Trial-Description-xxx
 **Age (Maximum Eligibility):** xxx-Age-Maximum-xxx </br>
 **Gender:** xxx-Gender-xxx </br>
 **Healthy Subject(s):** xxx-Healthy-Subject-xxx </br>
-**Participants Criteria (Inclusion):** xxx-Participants-Criteria-Inclusion-xxx </br>
-**Participants Criteria (Exclusion):** xxx-Participants-Criteria-Exclusion-xxx </br>
-**Subject(s) Type:** xxx-Subject-Type-xxx </br>
+
+</br>
+
+xxx-Participants-Criteria-Inclusion-xxx </br>
+
 
 
 ### Contacts and Coordinators

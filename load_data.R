@@ -3,14 +3,12 @@ library(httr)
 library(jsonlite)
 library(tibble)
 
-## SIMPLE ------
-
-## Get data ----
-
+## Download & save ----
 if(TRUE){
   url <- "https://clinicaltrials.gov/api/query/full_studies?expr=finland&min_rnk=1&max_rnk=100&fmt=json"
   res <- fromJSON(content(GET(url)))
   df <- as_tibble(res$FullStudiesResponse$FullStudies)
+  ## Modify list to dataframe
   trials <- dplyr::tibble(
     # = BASIC INFOS
     NCTId = df$Study$ProtocolSection$IdentificationModule$NCTId, ## id
@@ -65,17 +63,20 @@ if(TRUE){
     Reference=df$Study$ProtocolSection$ReferencesModule$ReferenceList$Reference,
     SeeAlsoLink=df$Study$ProtocolSection$ReferencesModule$SeeAlsoLinkList$SeeAlsoLink
   )
-  # Create URL link
+  ## Create URL link
   trials$url <- paste0("trials/", trials$NCTId, ".html")
   trials$Link <- paste0("<a href='",trials$url,"'>",trials$url,"</a>")
+  
+  ## Save dataset
   # readr::write_csv2(trials, file = paste0("./data/",Sys.Date(), "_trials.csv"))
   saveRDS(trials, file = paste0("./data/",Sys.Date(), "_trials.rds"))
 }
 
 
-
-
-## Read the latest file
-fils <- list.files("data/")
-latest <- fils[order(format(as.Date(substr(fils, 1, 10), format = "%Y-%m-%d")), decreasing = T)[1]]
-d <- readRDS(paste0("data/", latest))
+## Load  -----
+if(TRUE){
+  ## Read the latest file
+  fils <- list.files("data/")
+  latest <- fils[order(format(as.Date(substr(fils, 1, 10), format = "%Y-%m-%d")), decreasing = T)[1]]
+  d <- readRDS(paste0("data/", latest))
+}
