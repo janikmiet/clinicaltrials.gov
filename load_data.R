@@ -39,6 +39,8 @@ if(TRUE){
     # = DESCRIPTION AND SUMMARY
     BriefSummary=df$Study$ProtocolSection$DescriptionModule$BriefSummary,
     DetailedDescription=df$Study$ProtocolSection$DescriptionModule$DetailedDescription,
+    DesignPrimaryPurpose=df$Study$ProtocolSection$DesignModule$DesignInfo$DesignPrimaryPurpose,
+    DesignInterventionModelDescription=df$Study$ProtocolSection$DesignModule$DesignInfo$DesignInterventionModelDescription,
     # =
     Condition=df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition, #df
     Keyword=df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword,   # df
@@ -55,10 +57,11 @@ if(TRUE){
     SamplingMethod=df$Study$ProtocolSection$EligibilityModule$SamplingMethod,
     GenderBased=df$Study$ProtocolSection$EligibilityModule$GenderBased,
     GenderDescription=df$Study$ProtocolSection$EligibilityModule$GenderDescription,
+    
     # =
-    # OverallOfficial=df$Study$ProtocolSection$ContactsLocationsModule$OverallOfficialList$OverallOfficial,
-    # Location=df$Study$ProtocolSection$ContactsLocationsModule$LocationList$Location,
-    # CentralContact=df$Study$ProtocolSection$ContactsLocationsModule$CentralContactList$CentralContact,
+    OverallOfficial=df$Study$ProtocolSection$ContactsLocationsModule$OverallOfficialList$OverallOfficial,
+    Location=df$Study$ProtocolSection$ContactsLocationsModule$LocationList$Location,
+    CentralContact=df$Study$ProtocolSection$ContactsLocationsModule$CentralContactList$CentralContact,
     # =
     Reference=df$Study$ProtocolSection$ReferencesModule$ReferenceList$Reference,
     SeeAlsoLink=df$Study$ProtocolSection$ReferencesModule$SeeAlsoLinkList$SeeAlsoLink

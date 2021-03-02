@@ -55,6 +55,9 @@ for (i in 1:nrow(d)) {
                                        replacement = check_na(d1$OfficialTitle))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Description-xxx",
+                                       replacement = check_na(d1$BriefSummary))
+  template <- stringr::str_replace_all(string = template,
+                                       pattern = "xxx-Trial-DetailedDescription-xxx",
                                        replacement = check_na(d1$DetailedDescription))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Keywords-xxx",
@@ -68,36 +71,14 @@ for (i in 1:nrow(d)) {
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Phase-xxx",
                                        replacement = paste(unlist(check_null(d1$Phase)), collapse = ",")) ### check this
+  ## Study design
   template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-Sponsor-Name-xxx",
-                                       replacement = check_na(d1$LeadSponsorName))
-  template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-Sponsor-Type-xxx",
-                                       replacement = check_na(d1$LeadSponsorClass))
-  template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-Collaborator-xxx",
-                                       replacement = paste0(unlist(check_null(d1$Collaborators)), collapse = ", ")) ## DATAFRAME
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Collaborator-Type-xxx",
-  #                                      replacement = ifelse(is.na(d1$`Collaborator Type`), "NA", d1$`Collaborator Type`))
-  template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-Study-Design-xxx",
+                                       pattern = "xxx-StudyType-xxx",
                                        replacement = check_na(d1$StudyType))
   # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Hypothesis-xxx",
-  #                                      replacement = check_na(d1$Hypoth))
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Purpose-xxx",
-  #                                      replacement = check_na(d1$))
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Primary-Objective-xxx", 
-  #                                      replacement = check_na(d1$`Primary Objective(s)`))
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Secondary-Objective-xxx",
-  #                                      replacement = check_na(d1$`Secondary Objective(s)`))
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Responsible-Authority-xxx",
-  #                                      replacement = check_na(d1$`Responsible Authority`))
+  #                                      pattern = "xxx-Study-Design-xxx",
+  #                                      replacement = check_na(d1$StudyType))
+  ## Subjects
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Age-Minimum-xxx",
                                        replacement = check_na(d1$MinimumAge))
@@ -113,6 +94,21 @@ for (i in 1:nrow(d)) {
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Participants-Criteria-Inclusion-xxx",
                                        replacement = check_na(d1$EligibilityCriteria))
+  ### Contacts etc
+  template <- stringr::str_replace_all(string = template,
+                                       pattern = "xxx-ResponsibleParty-xxx",
+                                       replacement = check_na(d1$ResponsiblePartyType))
+  template <- stringr::str_replace_all(string = template,
+                                       pattern = "xxx-ResponsibleInvestigator-xxx",
+                                       replacement = paste0(check_na(d1$ResponsiblePartyInvestigatorFullName), 
+                                                            ", ", check_na(d1$ResponsiblePartyInvestigatorTitle),
+                                                            ", ", check_na(d1$ResponsiblePartyInvestigatorAffiliation)) )
+  template <- stringr::str_replace_all(string = template,
+                                       pattern = "xxx-Sponsor-Name-xxx",
+                                       replacement = check_na(d1$LeadSponsorName))
+  template <- stringr::str_replace_all(string = template,
+                                       pattern = "xxx-Collaborators-xxx",
+                                       replacement = paste0(unlist(check_null(d1$Collaborators)), collapse = ", ")) #DF
 
   
   # save as new file

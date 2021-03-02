@@ -16,6 +16,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 xxx-Trial-Description-xxx
 
 
@@ -31,18 +32,13 @@ xxx-Trial-Description-xxx
 **Keywords:** xxx-Keywords-xxx </br>
 
 
-### Sponsor & Collaborator
-
-**Sponsor:** xxx-Sponsor-Name-xxx </br>
-**Sponsor type:** xxx-Sponsor-Type-xxx </br>
-</br>
-**Collaborator:** xxx-Collaborator-xxx </br>
-**Collaborator type:** xxx-Collaborator-Type-xxx </br>
-
-
 ### Study
 
-**Design:** xxx-Study-Design-xxx </br>
+**Type:** xxx-StudyType-xxx </br>
+
+xxx-Trial-DetailedDescription-xxx
+
+<!-- **Design:** xxx-Study-Design-xxx </br> -->
 <!-- **Hypothesis:** xxx-Hypothesis-xxx </br> -->
 <!-- **Purpose:** xxx-Purpose-xxx </br> -->
 <!-- **Primary Objective(s):** xxx-Primary-Objective-xxx </br> -->
@@ -56,15 +52,16 @@ xxx-Trial-Description-xxx
 **Age (Maximum Eligibility):** xxx-Age-Maximum-xxx </br>
 **Gender:** xxx-Gender-xxx </br>
 **Healthy Subject(s):** xxx-Healthy-Subject-xxx </br>
-
 </br>
-
 xxx-Participants-Criteria-Inclusion-xxx </br>
 
 
+### Contacts, sponsors and Collaborators
 
-### Contacts and Coordinators
-
+**Responsible party:** xxx-ResponsibleParty-xxx </br>
+**Responsible investigator:** xxx-ResponsibleInvestigator-xxx </br>
+**Lead Sponsor:** xxx-Sponsor-Name-xxx </br>
+**Collaborators:** xxx-Collaborators-xxx </br>
 
 
 ### [Go back](../index.html)
