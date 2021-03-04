@@ -1,30 +1,6 @@
-## clinicaltrials.gov
+## Clinical trials in Finland
 
-### Workflow
+Search clinical trials from [clinicaltrial.gov](https://clinicaltrials.gov/api/) and render results to webpage. Detailed descriptions are available from all results.
 
-1. hae ensin montako triali löytyy (ja niiden id:t)
+### [Example output](https://research.janimiettinen.fi/material/clinicaltrials/)
 
-2. hae sitten 100 tulosta kerralla trialin full infot
-
-3. hae sitten trialien descriptionit
-
-4. joinaa tulokset
-
-
-## solve the problems
-
-- get right results / api call
-- nested tibble to data frame or refering right way
-- 
-
-
-```
-library(httr)
-library(jsonlite)
-library(tibble)
-
-url <- "https://clinicaltrials.gov/api/query/full_studies?expr=finland%26field%3Dlocation&min_rnk=1&max_rnk=20&fmt=json"
-res <- fromJSON(content(GET(url)))
-df <- as_tibble(res$FullStudiesResponse$FullStudies)
-
-```
