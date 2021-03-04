@@ -5,10 +5,21 @@ clean_folders <- TRUE # This cleans ./temp and ./output folders before rendering
 
 
 
-# Load global.R and dataset ----
+# Load global.R and download datasets ----
 source("global.R")
-source("load_data.R")
+source("download_data.R")
 
+
+## Load latest data set -----
+if(TRUE){
+  ## Read the latest file
+  fils <- list.files("data/")
+  latest <- fils[order(format(as.Date(substr(fils, 1, 10), format = "%Y-%m-%d")), decreasing = T)[1]]
+  df <- readRDS(paste0("data/", latest))
+  ## Create URL link
+  df$url <- paste0("trials/", df$Study$ProtocolSection$IdentificationModule$NCTId, ".html")
+  df$Link <- paste0("<a href='",df$url,"'>Description</a>")
+}
 
 
 # Create and clean directories -----
@@ -37,82 +48,74 @@ if(clean_folders){
 
 # Create RMD-pages -----
 # This creates rmd-pages to ./temp/ 
-for (i in 1:nrow(d)) {
-  d1 <- d[i,]
-  # d1 <- d[d$NCTId == "NCT00342992",] #TODO problem occurs!!!
-  
-  # read template
-  template <- readr::read_file("template.Rmd")
+for (i in 1:nrow(df)) {
+  d <- df[i,]
+  template <- readr::read_file("template.Rmd") # read template
   # replace keywords and description
   template <- stringr::str_replace_all(string = template, 
                                        pattern = "xxx-Trial-Identifier-xxx",
-                                       replacement = check_na(d1$NCTId))
+                                       replacement = check_na(d$Study$ProtocolSection$IdentificationModule$NCTId))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Title-xxx",
-                                       replacement = check_na(d1$BriefTitle))
+                                       replacement = check_na(d$Study$ProtocolSection$IdentificationModule$BriefTitle))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Title2-xxx",
-                                       replacement = check_na(d1$OfficialTitle))
+                                       replacement = check_na(d$Study$ProtocolSection$IdentificationModule$OfficialTitle))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Description-xxx",
-                                       replacement = check_na(d1$BriefSummary))
+                                       replacement = check_na(d$Study$ProtocolSection$DescriptionModule$BriefSummary))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-DetailedDescription-xxx",
-                                       replacement = check_na(d1$DetailedDescription))
+                                       replacement = check_na(d$Study$ProtocolSection$DescriptionModule$DetailedDescription))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Keywords-xxx",
-                                       replacement = paste0(unlist(check_null(d1$Keyword)), collapse = ", "))
+                                       replacement = paste0(unlist(check_null(d$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword)), collapse = ", "))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-LastKnownStatus-xxx",
-                                       replacement = as.character(check_na(d1$LastKnownStatus)))
+                                       replacement = as.character(check_null(d$Study$ProtocolSection$StatusModule$LastKnownStatus)))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-OverallStatus-xxx",
-                                       replacement = as.character(check_na(d1$OverallStatus)))
+                                       replacement = as.character(check_na(d$Study$ProtocolSection$StatusModule$OverallStatus)))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Phase-xxx",
-                                       replacement = paste(unlist(check_null(d1$Phase)), collapse = ",")) ### check this
+                                       replacement = paste(unlist(check_null(d$Study$ProtocolSection$DesignModule$PhaseList$Phase)), collapse = ",")) ### check this
   ## Study design
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-StudyType-xxx",
-                                       replacement = check_na(d1$StudyType))
-  # template <- stringr::str_replace_all(string = template,
-  #                                      pattern = "xxx-Study-Design-xxx",
-  #                                      replacement = check_na(d1$StudyType))
+                                       replacement = check_na(d$Study$ProtocolSection$DesignModule$StudyType))
   ## Subjects
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Age-Minimum-xxx",
-                                       replacement = check_na(d1$MinimumAge))
+                                       replacement = check_na(d$Study$ProtocolSection$EligibilityModule$MinimumAge))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Age-Maximum-xxx",
-                                       replacement = check_na(d1$MaximumAge))
+                                       replacement = check_na(d$Study$ProtocolSection$EligibilityModule$MaximumAge))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Gender-xxx",
-                                       replacement = check_na(d1$Gender))
+                                       replacement = check_na(d$Study$ProtocolSection$EligibilityModule$Gender))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Healthy-Subject-xxx",
-                                       replacement = check_na(d1$HealthyVolunteers))
+                                       replacement = check_na(d$Study$ProtocolSection$EligibilityModule$HealthyVolunteers))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Participants-Criteria-Inclusion-xxx",
-                                       replacement = check_na(d1$EligibilityCriteria))
+                                       replacement = check_na(d$Study$ProtocolSection$EligibilityModule$EligibilityCriteria))
   ### Contacts etc
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-ResponsibleParty-xxx",
-                                       replacement = check_na(d1$ResponsiblePartyType))
+                                       replacement = check_na(d$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyType))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-ResponsibleInvestigator-xxx",
-                                       replacement = paste0(check_na(d1$ResponsiblePartyInvestigatorFullName), 
-                                                            ", ", check_na(d1$ResponsiblePartyInvestigatorTitle),
-                                                            ", ", check_na(d1$ResponsiblePartyInvestigatorAffiliation)) )
+                                       replacement = paste0(check_na(d$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorFullName), 
+                                                            ", ", check_na(d$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorTitle),
+                                                            ", ", check_na(d$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorAffiliation)) )
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Sponsor-Name-xxx",
-                                       replacement = check_na(d1$LeadSponsorName))
+                                       replacement = check_na(d$Study$ProtocolSection$SponsorCollaboratorsModule$LeadSponsor$LeadSponsorName))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Collaborators-xxx",
-                                       replacement = paste0(unlist(check_null(d1$Collaborators)), collapse = ", ")) #DF
-
-  
-  # save as new file
-  writeLines(template, paste0("./temp/trials/", d1$NCTId,".Rmd"))
+                                       replacement = paste0(unlist(check_null(d$Study$ProtocolSection$SponsorCollaboratorsModule$CollaboratorList$Collaborator)), collapse = ", ")) #DF
+  # Save as new file
+  writeLines(template, paste0("./temp/trials/", d$Study$ProtocolSection$IdentificationModule$NCTId,".Rmd"))
 }
 
 
@@ -131,6 +134,4 @@ rmarkdown::render("index.Rmd", output_dir = "output/")
 
 # Upload to web ----
 
-# move files to kapsi
-# system("scp -r ./output/* neurocenterfinland@neurocenterfinland.fi-h.seravo.com:/home/neurocenterfinland/wordpress/htdocs/kliiniset-tutkimukset")
 

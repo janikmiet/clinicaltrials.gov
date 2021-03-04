@@ -1,10 +1,10 @@
 ---
 title: "Clinical trials in Finland"
-date: "`r paste0('Updated: ', Sys.time())`"
+date: "`r paste0('Updated: ', Sys.Date())`"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows
-    theme: united  # many options for theme, this one is my favorite.
+    theme: spacelab  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 ---
 
@@ -13,7 +13,19 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(flexdashboard)
-source("load_data.R") #
+library(DT)
+# source("load_data.R") #
+
+dat <- dplyr::tibble(
+    Status = as.factor(df$Study$ProtocolSection$StatusModule$OverallStatus),
+    Title = df$Study$ProtocolSection$IdentificationModule$BriefTitle, 
+    Organization = df$Study$ProtocolSection$IdentificationModule$Organization$OrgFullName, 
+    Started = df$Study$ProtocolSection$StatusModule$StartDateStruct$StartDate,
+    # LastStatus = df$Study$ProtocolSection$StatusModule$LastKnownStatus,
+    Condition = as.character(df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition),
+    Keyword = as.character(df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword),
+    Link = df$Link
+  )
 ```
 
 
@@ -26,48 +38,53 @@ Row
 ### Trials
 
 ```{r}
-valueBox(nrow(d), icon = "fa-medkit")
+valueBox(nrow(dat), icon = "fa-medkit")
+```
+
+### Organizations
+
+```{r}
+valueBox(length(unique(df$Study$ProtocolSection$IdentificationModule$Organization$OrgFullName)), icon = "fa-sitemap")
 ```
 
 ### Sponsors
 
 ```{r}
-valueBox(length(unique(d$LeadSponsorName)), icon = "fa-sitemap")
+valueBox(length(unique(df$Study$ProtocolSection$SponsorCollaboratorsModule$LeadSponsor$LeadSponsorName)), icon = "fa-user")
 ```
 
-### example&&&&Studies
 
-```{r}
-valueBox(1111, icon = "fa-user")
-```
+<!-- ### example&&&&&Subjects -->
 
-### example&&&&&Subjects
-
-```{r}
-valueBox(22222, icon = "fa-users")
-```
+<!-- ```{r} -->
+<!-- valueBox(22222, icon = "fa-users") -->
+<!-- ``` -->
 
 Row
 -----------------------------------------------------------------------
 
 
 ```{r datatable}
-cols <- c("BriefTitle", "Acronym", "OrgFullName", "StartDate", "LastKnownStatus", "OverallStatus", "Condition", "Keyword", "StudyType", "Link")
-DT::datatable(d[, cols],
+DT::datatable(dat,
               selection = c("single"),
               rownames = FALSE, 
               filter = 'top',
               escape = FALSE,
               #extensions = 'Buttons', 
               options = list(
+                order = list(list(0, 'desc'), list(2, 'asc')),
                 # dom = 'Bfrtip',
                 search = list(regex = TRUE, caseInsensitive = TRUE),
-                columnDefs = list(list(className = 'dt-right',  targets = "_all")),
+                columnDefs = list(list(className = 'dt-left',  targets = "_all")),
                 pageLength = 20
                 # language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Finnish.json')
                 # dom = 'Bfrtip',
                 # buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
-              ))
+              ))%>%
+  formatStyle(
+    'Status',
+    backgroundColor = styleEqual(levels = c("Not yet recruiting", "Recruiting", "Active, not recruiting"), values = c("yellow", "green", "orange"))
+  ) 
 ```
 
 About
@@ -75,5 +92,5 @@ About
 
 ### About this webpage
 
-We collected information of clinical trials which are currently held in Finland. Data is obtained from [GlobalData.com](https://globaldata.com/) and it is parsed, cleaned and formatted for user readable form. In case of a question, please [contact us]().
+We collected information of clinical trials which are currently held in Finland. Data is obtained from [ClinicalTrials.gov](https://clinicaltrials.gov/) and it is parsed, cleaned and formatted for user readable form. Check data [Terms and Conditions](https://clinicaltrials.gov/ct2/about-site/terms-conditions). In case of a question, please [contact us]().
 

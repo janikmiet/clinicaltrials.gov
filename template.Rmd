@@ -7,7 +7,7 @@ output:
     toc_float: true # floating toc
     toc_collapsed: false # collapse 
     number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
+    theme: spacelab  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
     #css: my.css   # you can add your custom css, should be in same folder
 ---
@@ -56,13 +56,18 @@ xxx-Trial-DetailedDescription-xxx
 xxx-Participants-Criteria-Inclusion-xxx </br>
 
 
-### Contacts, sponsors and Collaborators
+### Links, Contacts, sponsors and Collaborators
 
 **Responsible party:** xxx-ResponsibleParty-xxx </br>
 **Responsible investigator:** xxx-ResponsibleInvestigator-xxx </br>
 **Lead Sponsor:** xxx-Sponsor-Name-xxx </br>
 **Collaborators:** xxx-Collaborators-xxx </br>
 
+</br>
+</br>
 
-### [Go back](../index.html)
+[Link to study in ClinicalTrials.gov](https://clinicaltrials.gov/ct2/show/xxx-Trial-Identifier-xxx)
+
+
+### [Go back to results](../index.html)
 
