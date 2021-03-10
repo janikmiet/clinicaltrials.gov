@@ -9,12 +9,14 @@ if(TRUE){
   max_rnk=100
   i=1
   more_studies=TRUE
+  base_url <- readLines("url.txt")
   trials_final <- dplyr::tibble()
   ## Start data gathering
   while (more_studies) {
     ## Get data
     message(paste0("Downloading dataset ",i, " // ", Sys.time()))
-    url <- paste0("https://clinicaltrials.gov/api/query/full_studies?expr=(Brain%20OR%20head)%20and%20SEARCH[Location](AREA[LocationCountry]Finland)%20and%20SEARCH[Study](AREA[OverallStatus]Recruiting)&min_rnk=",min_rnk,"&max_rnk=",max_rnk,"&fmt=json")
+    # url <- paste0("https://clinicaltrials.gov/api/query/full_studies?expr=(Brain%20OR%20head)%20and%20SEARCH[Location](AREA[LocationCountry]Finland)%20and%20SEARCH[Study](AREA[OverallStatus]Recruiting)&min_rnk=",min_rnk,"&max_rnk=",max_rnk,"&fmt=json")
+    url <- paste0(base_url, "&min_rnk=", min_rnk,"&max_rnk=", max_rnk,"&fmt=json")
     res <- fromJSON(content(GET(url)))
     df <- as_tibble(res$FullStudiesResponse$FullStudies)
     ## Get more studies

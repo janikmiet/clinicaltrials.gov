@@ -22,8 +22,13 @@ dat <- dplyr::tibble(
     Organization = df$Study$ProtocolSection$IdentificationModule$Organization$OrgFullName, 
     Started = df$Study$ProtocolSection$StatusModule$StartDateStruct$StartDate,
     # LastStatus = df$Study$ProtocolSection$StatusModule$LastKnownStatus,
-    Condition = as.character(df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition),
+    Condition = rapply((df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition), paste0, collapse = ", "),
+    # Condition = as.character(df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition),
     Keyword = as.character(df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword),
+    # Keyword = rapply(as.list(stringr::str_replace(string = df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword, 
+                                                  # pattern = "NULL", 
+                                                  # replacement = "")), 
+                     # paste0, collapse = ", "),
     Link = df$Link
   )
 ```
