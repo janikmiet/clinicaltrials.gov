@@ -8,6 +8,7 @@ cond <- paste0("(AREA[Condition]",conditions,")", collapse = "%20OR%20")
 base_url <- paste0("https://clinicaltrials.gov/api/query/full_studies?expr=(Finland)%20AND%20(SEARCH[Study]",cond,")%20AND%20SEARCH[Location](AREA[LocationCountry]Finland)%20AND%20SEARCH[Study](AREA[OverallStatus]Recruiting)")
 base_url <- gsub(pattern = " ", replacement = "%20", x = base_url)
 writeLines(URLencode(base_url), con = "base_url.txt")
+rm(list = c("cond", "conditions", "base_url"))
 
 # ## Test it
 # r <- GET(url = readLines("base_url.txt"))

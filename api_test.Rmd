@@ -22,50 +22,61 @@ library(jsonlite)
 library(tibble)
 library(dplyr)
 
+# if(TRUE){
+#   min_rnk=1
+#   max_rnk=100
+#   i=1
+#   more_studies=TRUE
+#   base_url <- readLines("base_url.txt")
+#   trials_final <- dplyr::tibble()
+#   ## Start data gathering
+#   while (more_studies) {
+#     ## Get data
+#     message(paste0("Downloading dataset ",i, " // ", Sys.time()))
+#     url <- paste0(base_url, "&min_rnk=", min_rnk,"&max_rnk=", max_rnk,"&fmt=json")
+#     res <- fromJSON(content(GET(url)))
+#     df <- as_tibble(res$FullStudiesResponse$FullStudies)
+#     ## Get more studies
+#     if(nrow(df) == 100){
+#       min_rnk = min_rnk + 100
+#       max_rnk = max_rnk + 100
+#       i = i + 1
+#     }else{
+#       more_studies <- FALSE
+#     }
+#     ## Join data
+#     if(nrow(trials_final) <= 0){
+#       trials_final <- df
+#     }else{
+#       trials_final <- trials_final %>% 
+#         bind_rows(df)
+#     }
+#   }
+#   ## Save dataset
+#   # message(paste0("Saving full dataset. Found ", nrow(trials_final), " trials // ", Sys.time()))
+#   # saveRDS(trials_final, file = paste0("./data/temp_trials.rds"))
+#   
+#   ## Create Final data & URL link
+#   df <- trials_final
+#   df$url <- paste0("trials/", df$Study$ProtocolSection$IdentificationModule$NCTId, ".html")
+#   df$Link <- paste0("<a href='",df$url,"'>Description</a>")
+#   
+#   rm(list = c("trials_final", "res", "url", "min_rnk", "max_rnk","more_studies", "i"))
+# }
 if(TRUE){
-  min_rnk=1
-  max_rnk=100
-  i=1
-  more_studies=TRUE
-  base_url <- readLines("base_url.txt")
-  trials_final <- dplyr::tibble()
-  ## Start data gathering
-  while (more_studies) {
-    ## Get data
-    message(paste0("Downloading dataset ",i, " // ", Sys.time()))
-    url <- paste0(base_url, "&min_rnk=", min_rnk,"&max_rnk=", max_rnk,"&fmt=json")
-    res <- fromJSON(content(GET(url)))
-    df <- as_tibble(res$FullStudiesResponse$FullStudies)
-    ## Get more studies
-    if(nrow(df) == 100){
-      min_rnk = min_rnk + 100
-      max_rnk = max_rnk + 100
-      i = i + 1
-    }else{
-      more_studies <- FALSE
-    }
-    ## Join data
-    if(nrow(trials_final) <= 0){
-      trials_final <- df
-    }else{
-      trials_final <- trials_final %>% 
-        bind_rows(df)
-    }
-  }
-  ## Save dataset
-  # message(paste0("Saving full dataset. Found ", nrow(trials_final), " trials // ", Sys.time()))
-  # saveRDS(trials_final, file = paste0("./data/temp_trials.rds"))
-  
-  ## Create Final data & URL link
-  df <- trials_final
+  ## Read the latest file
+  fils <- list.files("data/")
+  latest <- fils[order(format(as.Date(substr(fils, 1, 10), format = "%Y-%m-%d")), decreasing = T)[1]]
+  df <- readRDS(paste0("data/", latest))
+  ## Create URL link
   df$url <- paste0("trials/", df$Study$ProtocolSection$IdentificationModule$NCTId, ".html")
   df$Link <- paste0("<a href='",df$url,"'>Description</a>")
-  
-  rm(list = c("trials_final", "res", "url", "min_rnk", "max_rnk","more_studies", "i"))
 }
 
-
-
+## Keywords
+Keyword <- df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword
+Keyword[sapply(Keyword, is.null)] <- ""
+# rapply(Keyword, paste0, collapse = ", ")
 
 dat <- dplyr::tibble(
     Status = as.factor(df$Study$ProtocolSection$StatusModule$OverallStatus),
@@ -74,10 +85,7 @@ dat <- dplyr::tibble(
     Started = df$Study$ProtocolSection$StatusModule$StartDateStruct$StartDate,
     # LastStatus = df$Study$ProtocolSection$StatusModule$LastKnownStatus,
     Condition = rapply((df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition), paste0, collapse = ", "),
-    Keyword = rapply(as.list(stringr::str_replace(string = df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword, 
-                                                  pattern = "NULL", 
-                                                  replacement = "")), 
-                     paste0, collapse = ", "),
+    Keyword = rapply(Keyword, paste0, collapse = ", "),
     # as.list(stringr::str_replace((df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword), "NULL", ""))
     Link = df$Link
   )

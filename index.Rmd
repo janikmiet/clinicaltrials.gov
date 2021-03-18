@@ -15,20 +15,15 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(flexdashboard)
 library(DT)
 # source("load_data.R") #
-
+Keyword <- df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword
+Keyword[sapply(Keyword, is.null)] <- ""
 dat <- dplyr::tibble(
     Status = as.factor(df$Study$ProtocolSection$StatusModule$OverallStatus),
     Title = df$Study$ProtocolSection$IdentificationModule$BriefTitle, 
     Organization = df$Study$ProtocolSection$IdentificationModule$Organization$OrgFullName, 
     Started = df$Study$ProtocolSection$StatusModule$StartDateStruct$StartDate,
-    # LastStatus = df$Study$ProtocolSection$StatusModule$LastKnownStatus,
     Condition = rapply((df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition), paste0, collapse = ", "),
-    # Condition = as.character(df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition),
-    Keyword = as.character(df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword),
-    # Keyword = rapply(as.list(stringr::str_replace(string = df$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword, 
-                                                  # pattern = "NULL", 
-                                                  # replacement = "")), 
-                     # paste0, collapse = ", "),
+    Keyword = rapply(Keyword, paste0, collapse = ", "),
     Link = df$Link
   )
 ```
