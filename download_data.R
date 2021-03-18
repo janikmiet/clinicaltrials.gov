@@ -9,7 +9,7 @@ if(TRUE){
   max_rnk=100
   i=1
   more_studies=TRUE
-  base_url <- readLines("url.txt")
+  base_url <- readLines("base_url.txt")
   trials_final <- dplyr::tibble()
   ## Start data gathering
   while (more_studies) {
