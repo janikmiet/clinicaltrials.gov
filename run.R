@@ -1,14 +1,11 @@
 ## CLINICAL TRIALS WEBPAGE/DATABASE
-
 library(tidyverse)
 clean_folders <- TRUE # This cleans ./temp and ./output folders before rendering files
-
-
+theme <- "default" # choose one ("default", "cerulean", "journal", "flatly", "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti")
 
 # Load global.R and download datasets ----
 source("global.R")
 source("download_data.R")
-
 
 ## Load latest data set -----
 if(TRUE){
@@ -21,13 +18,11 @@ if(TRUE){
   df$Link <- paste0("<a href='",df$url,"'>Description</a>")
 }
 
-
 # Create and clean directories -----
 if(!dir.exists("temp/")) dir.create("temp/")
 if(!dir.exists("temp/trials")) dir.create("temp/trials")
 if(!dir.exists("output/")) dir.create("output/")
 if(!dir.exists("output/trials")) dir.create("output/trials")
-
 ## Remove all files from ./temp
 if(clean_folders){
   fils <- list.files("temp/", full.names = T, recursive = T)
@@ -35,7 +30,6 @@ if(clean_folders){
     file.remove(fil)
   }
 }
-
 ## Remove all files from ./output
 if(clean_folders){
   fils <- list.files("output/", full.names = T, recursive = T)
@@ -51,6 +45,9 @@ if(clean_folders){
 for (i in 1:nrow(df)) {
   d <- df[i,]
   template <- readr::read_file("template.Rmd") # read template
+  template <- stringr::str_replace_all(string = template, 
+                                    pattern = "xxx-theme-xxx",
+                                    replacement = theme)
   # replace keywords and description
   template <- stringr::str_replace_all(string = template, 
                                        pattern = "xxx-Trial-Identifier-xxx",
@@ -64,9 +61,9 @@ for (i in 1:nrow(df)) {
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Description-xxx",
                                        replacement = check_na(d$Study$ProtocolSection$DescriptionModule$BriefSummary))
-  template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-Trial-DetailedDescription-xxx",
-                                       replacement = check_na(d$Study$ProtocolSection$DescriptionModule$DetailedDescription))
+  # template <- stringr::str_replace_all(string = template,
+  #                                      pattern = "xxx-Trial-DetailedDescription-xxx",
+  #                                      replacement = check_na(d$Study$ProtocolSection$DescriptionModule$DetailedDescription))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Keywords-xxx",
                                        replacement = paste0(unlist(check_null(d$Study$ProtocolSection$ConditionsModule$KeywordList$Keyword)), collapse = ", "))
@@ -79,10 +76,6 @@ for (i in 1:nrow(df)) {
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Phase-xxx",
                                        replacement = paste(unlist(check_null(d$Study$ProtocolSection$DesignModule$PhaseList$Phase)), collapse = ",")) ### check this
-  ## Study design
-  template <- stringr::str_replace_all(string = template,
-                                       pattern = "xxx-StudyType-xxx",
-                                       replacement = check_na(d$Study$ProtocolSection$DesignModule$StudyType))
   ## Subjects
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Age-Minimum-xxx",
@@ -118,20 +111,32 @@ for (i in 1:nrow(df)) {
   writeLines(template, paste0("./temp/trials/", d$Study$ProtocolSection$IdentificationModule$NCTId,".Rmd"))
 }
 
+if(TRUE){
+  index <- readr::read_file("index.Rmd") # read template
+  index <- stringr::str_replace_all(string = index, 
+                                    pattern = "xxx-theme-xxx",
+                                    replacement = theme)
+  writeLines(index, "temp/index.Rmd")
+}
 
 
 # Render webpages  ----
 ## This renders rmd pages to ./output
-pages <- list.files("temp/trials/", full.names = T)
+pages <- list.files("temp/trials/", full.names = T, pattern = "Rmd")
 for(page in pages){
   rmarkdown::render(page, output_dir = "output/trials/")
 }
-## Create index
-rmarkdown::render("index.Rmd", output_dir = "output/")
-
-
+pages <- list.files("temp/", full.names = T, pattern = "Rmd")
+for(page in pages){
+  rmarkdown::render(page, output_dir = "output/")
+}
 
 
 # Upload to web ----
 
+# # move to neurocenter
+# system("scp -r ./output/* neurocenterfinland@neurocenterfinland.fi-h.seravo.com:/home/neurocenterfinland/wordpress/htdocs/kliiniset-tutkimukset")
+
+# # move files to kapsi
+# system("scp -r ./output/* janikmiet@kapsi.fi:/home/users/janikmiet/sites/research.janimiettinen.fi/www/material/clinicaltrials")
 

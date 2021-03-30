@@ -7,7 +7,7 @@ output:
     toc_float: true # floating toc
     toc_collapsed: false # collapse 
     number_sections: false  ## if you want number sections at each table header
-    theme: spacelab  # many options for theme, this one is my favorite.
+    theme: xxx-theme-xxx  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
     #css: my.css   # you can add your custom css, should be in same folder
 ---
@@ -30,20 +30,6 @@ xxx-Trial-Description-xxx
 **Trial Phase:** xxx-Trial-Phase-xxx </br>
 </br>
 **Keywords:** xxx-Keywords-xxx </br>
-
-
-### Study
-
-**Type:** xxx-StudyType-xxx </br>
-
-xxx-Trial-DetailedDescription-xxx
-
-<!-- **Design:** xxx-Study-Design-xxx </br> -->
-<!-- **Hypothesis:** xxx-Hypothesis-xxx </br> -->
-<!-- **Purpose:** xxx-Purpose-xxx </br> -->
-<!-- **Primary Objective(s):** xxx-Primary-Objective-xxx </br> -->
-<!-- **Secondary Objective(s):** xxx-Secondary-Objective-xxx </br> -->
-<!-- **Responsible Authority:** xxx-Responsible-Authority-xxx </br> -->
 
 
 ### Subjects
