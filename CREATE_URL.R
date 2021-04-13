@@ -1,5 +1,8 @@
 # Writes base_url.txt which has URL without min and max rank and fmt
 # Search defition is created from conditions.csv (search condition keywords)
+library(httr)
+library(tidyverse)
+
 conditions <- readr::read_csv2("./doc/conditions.csv")
 conditions <- conditions[order(conditions$Cases, decreasing = T),]
 # conditions <- head(unique(conditions$Condition), 160)
