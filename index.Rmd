@@ -80,11 +80,12 @@ DT::datatable(dat,
                 # language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Finnish.json')
                 # dom = 'Bfrtip',
                 # buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
-              ))%>%
-  formatStyle(
-    'Status',
-    backgroundColor = styleEqual(levels = c("Not yet recruiting", "Recruiting", "Active, not recruiting"), values = c("yellow", "green", "orange"))
-  ) 
+              )) 
+# %>%
+  # formatStyle(
+  #   'Status',
+  #   backgroundColor = styleEqual(levels = c("Not yet recruiting", "Recruiting", "Active, not recruiting"), values = c("yellow", "green", "orange"))
+  # ) 
 ```
 
 About
