@@ -6,3 +6,7 @@ check_na <- function(x) {
 check_null <- function(x) {
   ifelse(is.null(x[[1]]), "NA", x)
 }
+## replace " to '
+check_text <- function(x) {
+  stringr::str_replace_all(x, "\"", "'")
+}

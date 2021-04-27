@@ -1,7 +1,7 @@
 ## CLINICAL TRIALS WEBPAGE/DATABASE
 library(tidyverse)
 clean_folders <- TRUE # This cleans ./temp and ./output folders before rendering files
-theme <- "default" # choose one ("default", "cerulean", "journal", "flatly", "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti")
+theme <- "cerulean" # choose one ("default", "cerulean", "journal", "flatly", "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti")
 
 # Load global.R and download datasets ----
 source("global.R")
@@ -54,10 +54,10 @@ for (i in 1:nrow(df)) {
                                        replacement = check_na(d$Study$ProtocolSection$IdentificationModule$NCTId))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Title-xxx",
-                                       replacement = check_na(d$Study$ProtocolSection$IdentificationModule$BriefTitle))
+                                       replacement = check_text(check_na(d$Study$ProtocolSection$IdentificationModule$BriefTitle)))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Title2-xxx",
-                                       replacement = check_na(d$Study$ProtocolSection$IdentificationModule$OfficialTitle))
+                                       replacement = check_text(check_na(d$Study$ProtocolSection$IdentificationModule$OfficialTitle)))
   template <- stringr::str_replace_all(string = template,
                                        pattern = "xxx-Trial-Description-xxx",
                                        replacement = check_na(d$Study$ProtocolSection$DescriptionModule$BriefSummary))
@@ -116,27 +116,26 @@ if(TRUE){
   index <- stringr::str_replace_all(string = index, 
                                     pattern = "xxx-theme-xxx",
                                     replacement = theme)
+  system("cp mystyle.css temp/trials/")
+  system("cp theme-neuro.css temp/")
   writeLines(index, "temp/index.Rmd")
 }
 
 
 # Render webpages  ----
 ## This renders rmd pages to ./output
-pages <- list.files("temp/trials/", full.names = T, pattern = "Rmd")
-for(page in pages){
-  rmarkdown::render(page, output_dir = "output/trials/")
-}
-pages <- list.files("temp/", full.names = T, pattern = "Rmd")
-for(page in pages){
-  rmarkdown::render(page, output_dir = "output/")
+if(TRUE){
+  pages <- list.files("temp/trials/", full.names = T, pattern = "Rmd")
+  for(page in pages){
+    print(paste0("Rendering ", page))
+    rmarkdown::render(page, output_dir = "output/trials/")
+  }
+  pages <- list.files("temp/", full.names = T, pattern = "Rmd")
+  for(page in pages){
+    rmarkdown::render(page, output_dir = "output/")
+  }
 }
 
 
 # Upload to web ----
-
-# # move to neurocenter
-# system("scp -r ./output/* neurocenterfinland@neurocenterfinland.fi-h.seravo.com:/home/neurocenterfinland/wordpress/htdocs/kliiniset-tutkimukset")
-
-# # move files to kapsi
-# system("scp -r ./output/* janikmiet@kapsi.fi:/home/users/janikmiet/sites/research.janimiettinen.fi/www/material/clinicaltrials")
 

@@ -7,9 +7,9 @@ output:
     toc_float: true # floating toc
     toc_collapsed: false # collapse 
     number_sections: false  ## if you want number sections at each table header
-    theme: xxx-theme-xxx  # many options for theme, this one is my favorite.
+    #theme: xxx-theme-xxx  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
-    #css: my.css   # you can add your custom css, should be in same folder
+    css: mystyle.css   # you can add your custom css, should be in same folder
 ---
 
 ```{r setup, include=FALSE}

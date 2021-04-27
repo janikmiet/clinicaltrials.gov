@@ -4,7 +4,8 @@ date: "`r paste0('Updated: ', Sys.Date())`"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows
-    theme: xxx-theme-xxx
+    # theme: xxx-theme-xxx
+    css: theme-neuro.css
     highlight: tango  # specifies the syntax highlighting style
 ---
 
@@ -29,7 +30,7 @@ dat <- dplyr::tibble(
 ```
 
 
-Info
+Trials
 =======================================================================
 
 Row
