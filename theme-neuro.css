@@ -6,14 +6,14 @@ Cool Grey #EAEAEA
 Green #6BFF6F
 Light Blue #37FFFB
 Sky Blue #40C3FF
+NAVIBLUE #1e22aa
 */
 
 /* Infograph background */
 .bg-primary {
-  background-color: #40C3FF;
+  background-color: #4936FF;
 }
 
-/* Navigation bar */
 .navbar-inverse {
   /*  font-family: "Blogger Sans", "Arial", monospace;*/
   background-color: #29015F;
@@ -44,6 +44,7 @@ Sky Blue #40C3FF
   color: #6BFF6F;
   background-color: #29015F;
 }
+
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
 .navbar-inverse .navbar-nav > .disabled > a:focus {
@@ -117,3 +118,4 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #ffffff;
 }
+
