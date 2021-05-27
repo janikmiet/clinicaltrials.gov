@@ -4,7 +4,7 @@ check_na <- function(x) {
 }
 ## Help function to check null lists
 check_null <- function(x) {
-  ifelse(is.null(x[[1]]), "NA", x)
+  ifelse(is.null(x[[1]]), "Not Available from clinicaltrials.gov", x)
 }
 ## replace " to '
 check_text <- function(x) {
