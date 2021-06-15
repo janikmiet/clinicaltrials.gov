@@ -1,4 +1,4 @@
-﻿Class;Condition;Cases;Check
+Class;Condition;Cases;Check
 Behaviors and Mental Disorders  ;Aggression;5;X
 Behaviors and Mental Disorders  ;Alcohol Drinking;2;X
 Behaviors and Mental Disorders  ;Alcohol-Related Disorders;3;X
@@ -18,10 +18,8 @@ Behaviors and Mental Disorders  ;Confusion;1;X
 Behaviors and Mental Disorders  ;Delirium;1;X
 Behaviors and Mental Disorders  ;Dementia;10;X
 Behaviors and Mental Disorders  ;Depression;12;X
-Behaviors and Mental Disorders  ;Depression, Postpartum;1;X
+Other;ADHD;10;X
 Behaviors and Mental Disorders  ;Depressive Disorder;12;X
-Behaviors and Mental Disorders  ;Depressive Disorder, Major;5;X
-Behaviors and Mental Disorders  ;Depressive Disorder, Treatment-Resistant;1;X
 Behaviors and Mental Disorders  ;Developmental Disabilities;1;X
 Behaviors and Mental Disorders  ;Disorders of Excessive Somnolence;2;X
 Behaviors and Mental Disorders  ;Disruptive, Impulse Control, and Conduct Disorders;1;X
@@ -49,12 +47,10 @@ Behaviors and Mental Disorders  ;Psychotic Disorders;41;X
 Behaviors and Mental Disorders  ;Quality of Life;24;X
 Behaviors and Mental Disorders  ;Schizophrenia;4;X
 Behaviors and Mental Disorders  ;Schizophrenia Spectrum and Other Psychotic Disorders;4;X
-Behaviors and Mental Disorders  ;Sleep Disorders, Circadian Rhythm;1;X
-Behaviors and Mental Disorders  ;Sleep Disorders, Intrinsic;7;X
+Behaviors and Mental Disorders  ;Sleep Disorders;8;X
 Behaviors and Mental Disorders  ;Sleep Initiation and Maintenance Disorders;2;X
 Behaviors and Mental Disorders  ;Sleep Wake Disorders;7;X
-Behaviors and Mental Disorders  ;Stress Disorders, Traumatic;1;X
-Behaviors and Mental Disorders  ;Stress, Psychological;1;X
+Behaviors and Mental Disorders  ;Stress;6;X
 Behaviors and Mental Disorders  ;Substance-Related Disorders;4;X
 Behaviors and Mental Disorders  ;Trauma and Stressor Related Disorders;1;X
 Nervous System Diseases  ;Alzheimer Disease;10;X
@@ -108,20 +104,13 @@ Nervous System Diseases  ;Facial Paralysis;1;X
 Nervous System Diseases  ;Fatigue Syndrome, Chronic;3;X
 Nervous System Diseases  ;Fibromyalgia;2;X
 Nervous System Diseases  ;Head Injuries, Closed;2;X
-Nervous System Diseases  ;Headache Disorders;8;X
-Nervous System Diseases  ;Headache Disorders, Primary;8;X
-Nervous System Diseases  ;Headache Disorders, Secondary;1;X
+Nervous System Diseases  ;Headache Disorders;9;X
 Nervous System Diseases  ;Hearing Disorders;1;X
 Nervous System Diseases  ;Hearing Loss;1;X
-Nervous System Diseases  ;Hematoma, Subdural;1;X
-Nervous System Diseases  ;Hematoma, Subdural, Chronic;1;X
+Nervous System Diseases  ;Hematoma;1;X
 Nervous System Diseases  ;Hydrocephalus;3;X
-Nervous System Diseases  ;Hydrocephalus, Normal Pressure;2;X
 Nervous System Diseases  ;Infratentorial Neoplasms;1;X
-Nervous System Diseases  ;Intracranial Aneurysm;5;X
-Nervous System Diseases  ;Intracranial Arterial Diseases;5;X
-Nervous System Diseases  ;Intracranial Hemorrhage, Traumatic;1;X
-Nervous System Diseases  ;Intracranial Hemorrhages;7;X
+Nervous System Diseases  ;Intracranial;18;X
 Nervous System Diseases  ;Ischemic Attack, Transient;3;X
 Nervous System Diseases  ;Jaw Fractures;1;X
 Nervous System Diseases  ;Language Disorders;2;X
@@ -135,8 +124,6 @@ Nervous System Diseases  ;Mononeuropathies;1;X
 Nervous System Diseases  ;Motor Neuron Disease;1;X
 Nervous System Diseases  ;Movement Disorders;2;X
 Nervous System Diseases  ;Multiple Sclerosis;18;X
-Nervous System Diseases  ;Multiple Sclerosis, Chronic Progressive;2;X
-Nervous System Diseases  ;Multiple Sclerosis, Relapsing-Remitting;2;X
 Nervous System Diseases  ;Muscle Cramp;1;X
 Nervous System Diseases  ;Muscular Atrophy;1;X
 Nervous System Diseases  ;Muscular Diseases;9;X
@@ -167,10 +154,8 @@ Nervous System Diseases  ;Sciatica;1;X
 Nervous System Diseases  ;Seizures;1;X
 Nervous System Diseases  ;Sensation Disorders;3;X
 Nervous System Diseases  ;Skull Fractures;1;X
-Nervous System Diseases  ;Sleep Apnea Syndromes;3;X
-Nervous System Diseases  ;Sleep Apnea, Obstructive;3;X
-Nervous System Diseases  ;Sleep Disorders, Circadian Rhythm;1;X
-Nervous System Diseases  ;Sleep Disorders, Intrinsic;7;X
+Nervous System Diseases  ;Sleep Apnea;6;X
+Nervous System Diseases  ;Sleep Disorders;8;X
 Nervous System Diseases  ;Sleep Initiation and Maintenance Disorders;2;X
 Nervous System Diseases  ;Sleep Wake Disorders;7;X
 Nervous System Diseases  ;Spasm;1;X
@@ -194,7 +179,6 @@ Substance Related Disorders  ;Cardiotoxicity;1;X
 Substance Related Disorders  ;Chemically-Induced Disorders;6;X
 Substance Related Disorders  ;Drug-Related Side Effects and Adverse Reactions;1;X
 Substance Related Disorders  ;Fetal Alcohol Spectrum Disorders;1;X
-Substance Related Disorders  ;Marijuana Abuse;1;X
 Substance Related Disorders  ;Neurotoxicity Syndromes;1;X
 Substance Related Disorders  ;Pancreatitis, Alcoholic;1;X
 Substance Related Disorders  ;Poisoning;1;X
@@ -216,18 +200,15 @@ Cancers and Other Neoplasms  ;Glioma;4;X
 Cancers and Other Neoplasms  ;Head and Neck Neoplasms;7;X
 Cancers and Other Neoplasms  ;Histiocytoma, Malignant Fibrous;1;X
 Cancers and Other Neoplasms  ;Infratentorial Neoplasms;1;X
-Cancers and Other Neoplasms  ;Lymphoma;29;X
-Cancers and Other Neoplasms  ;Lymphoma, B-Cell;9;X
-Cancers and Other Neoplasms  ;Lymphoma, B-Cell, Marginal Zone;1;X
-Cancers and Other Neoplasms  ;Lymphoma, Follicular;5;X
-Cancers and Other Neoplasms  ;Lymphoma, Large B-Cell, Diffuse;6;X
+Cancers and Other Neoplasms  ;Lymphoma;50;X
 Cancers and Other Neoplasms  ;Neoplasms, Nerve Tissue;18;X
 Cancers and Other Neoplasms  ;Neoplasms, Neuroepithelial;4;X
 Cancers and Other Neoplasms  ;Nervous System Neoplasms;3;X
 Cancers and Other Neoplasms  ;Neurocytoma;1;X
 Cancers and Other Neoplasms  ;Neuroectodermal Tumors;17;X
-Cancers and Other Neoplasms  ;Neuroectodermal Tumors, Primitive;17;X
 Cancers and Other Neoplasms  ;Neuroendocrine Tumors;13;X
 Cancers and Other Neoplasms  ;Oligodendroglioma;1;X
 Cancers and Other Neoplasms  ;Osteosarcoma;2;X
 Cancers and Other Neoplasms  ;Respiratory Tract Neoplasms;13;X
+Other;Psychiatry;50;X
+Other;Autism;50;X

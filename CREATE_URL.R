@@ -7,7 +7,7 @@ conditions <- readr::read_csv2("./doc/conditions.csv")
 conditions <- conditions[order(conditions$Cases, decreasing = T),]
 # conditions <- head(unique(conditions$Condition), 160)
 # conditions <- unique(conditions$Condition)
-conditions <- head(unique(conditions$Condition), 160)
+conditions <- head(unique(conditions$Condition), 170)
 cond <- paste0("(AREA[Condition]",conditions,")", collapse = "%20OR%20")
 base_url <- paste0("https://clinicaltrials.gov/api/query/full_studies?expr=(Finland)%20AND%20(SEARCH[Study]",cond,")%20AND%20SEARCH[Location](AREA[LocationCountry]Finland)%20AND%20SEARCH[Study](AREA[OverallStatus]Recruiting)")
 base_url <- gsub(pattern = " ", replacement = "%20", x = base_url)
