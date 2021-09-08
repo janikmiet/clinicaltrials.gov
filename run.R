@@ -44,7 +44,7 @@ if(clean_folders){
 # This creates rmd-pages to ./temp/ 
 for (i in 1:nrow(df)) {
   d <- df[i,]
-  template <- readr::read_file("template.Rmd") # read template
+  template <- readr::read_file("templates/template.Rmd") # read template
   template <- stringr::str_replace_all(string = template, 
                                     pattern = "xxx-theme-xxx",
                                     replacement = theme)
@@ -112,12 +112,13 @@ for (i in 1:nrow(df)) {
 }
 
 if(TRUE){
-  index <- readr::read_file("index.Rmd") # read template
+  index <- readr::read_file("templates/index.Rmd") # read template
   index <- stringr::str_replace_all(string = index, 
                                     pattern = "xxx-theme-xxx",
                                     replacement = theme)
-  system("cp mystyle.css temp/trials/")
-  system("cp theme-neuro.css temp/")
+  system("cp templates/mystyle.css temp/trials/")
+  system("cp templates/mystyle.css temp/")
+  system("cp templates/theme-neuro.css temp/")
   writeLines(index, "temp/index.Rmd")
 }
 
@@ -139,3 +140,44 @@ if(TRUE){
 
 # Upload to web ----
 
+# # move to neurocenter
+# system("scp -P 10199 -r ./output/* neurocenterfinland@neurocenterfinland.fi-h.seravo.com:/home/neurocenterfinland/wordpress/htdocs/kliiniset-tutkimukset")
+
+# # move files to kapsi
+# system("scp -r ./output/* janikmiet@kapsi.fi:/home/users/janikmiet/sites/research.janimiettinen.fi/www/material/clinicaltrials")
+
+
+## Writes Excel file of project and contacts -----
+if(FALSE){
+  library(tidyverse)
+  ## Read the latest file
+  fils <- list.files("data/")
+  latest <- fils[order(format(as.Date(substr(fils, 1, 10), format = "%Y-%m-%d")), decreasing = T)[1]]
+  df <- readRDS(paste0("data/", latest))
+  ## Create URL link
+  df$url <- paste0("trials/", df$Study$ProtocolSection$IdentificationModule$NCTId, ".html")
+  df$Link <- paste0("<a href='",df$url,"'>Description</a>")
+  ## Create Excel File
+  d <- tibble(
+    title = df$Study$ProtocolSection$IdentificationModule$BriefTitle,
+    status = df$Study$ProtocolSection$StatusModule$OverallStatus,
+    responsible_party_type = df$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyType,
+    responsible_investigator = df$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorFullName,
+    responsible_investigator_title = df$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorTitle,
+    responsible_affilitation = df$Study$ProtocolSection$SponsorCollaboratorsModule$ResponsibleParty$ResponsiblePartyInvestigatorAffiliation,
+    # central_contact = df$Study$ProtocolSection$ContactsLocationsModule$CentralContactList$CentralContact
+    central_contact = paste0(df$Study$ProtocolSection$ContactsLocationsModule$CentralContactList$CentralContact, "; ")
+  )
+  # unlist(d$central_contact)
+  ## MODIFY
+  # for (i in 1:nrow(d)) {
+  #   # print(d$central_contact[i])
+  #   contact <- d$central_contact[i]
+  #   if(!contact == "NULL") {
+  #     # n <- length(contact)
+  #     d$unlist(contact)
+  #   } 
+  # }
+  # is.null(d$central_contact[149])
+  xlsx::write.xlsx(d, file = "kliiniset.xlsx")
+}

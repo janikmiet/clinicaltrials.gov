@@ -22,6 +22,8 @@ dat <- dplyr::tibble(
     Status = as.factor(df$Study$ProtocolSection$StatusModule$OverallStatus),
     Title = df$Study$ProtocolSection$IdentificationModule$BriefTitle, 
     Organization = df$Study$ProtocolSection$IdentificationModule$Organization$OrgFullName, 
+    # Location = paste0(sapply(df$Study$ProtocolSection$ContactsLocationsModule$LocationList$Location, "[[", "LocationCity"), collapse = ", "),
+    # Location = sapply(df$Study$ProtocolSection$ContactsLocationsModule$LocationList$Location, "[[", "LocationCity"),
     Started = df$Study$ProtocolSection$StatusModule$StartDateStruct$StartDate,
     Condition = rapply((df$Study$ProtocolSection$ConditionsModule$ConditionList$Condition), paste0, collapse = ", "),
     Keyword = rapply(Keyword, paste0, collapse = ", "),

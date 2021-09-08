@@ -1,214 +1,115 @@
-Class;Condition;Cases;Check
-Behaviors and Mental Disorders  ;Aggression;5;X
-Behaviors and Mental Disorders  ;Alcohol Drinking;2;X
-Behaviors and Mental Disorders  ;Alcohol-Related Disorders;3;X
-Behaviors and Mental Disorders  ;Alcoholism;2;X
-Behaviors and Mental Disorders  ;Alzheimer Disease;10;X
-Behaviors and Mental Disorders  ;Amnesia;2;X
-Behaviors and Mental Disorders  ;Anxiety Disorders;5;X
-Behaviors and Mental Disorders  ;Behavior, Addictive;1;X
-Behaviors and Mental Disorders  ;Behavioral Symptoms;14;X
-Behaviors and Mental Disorders  ;Burnout, Psychological;1;X
-Behaviors and Mental Disorders  ;Cataplexy;2;X
-Behaviors and Mental Disorders  ;Cognition Disorders;3;X
-Behaviors and Mental Disorders  ;Cognitive Dysfunction;5;X
-Behaviors and Mental Disorders  ;Communication Disorders;2;X
-Behaviors and Mental Disorders  ;Conduct Disorder;1;X
-Behaviors and Mental Disorders  ;Confusion;1;X
-Behaviors and Mental Disorders  ;Delirium;1;X
-Behaviors and Mental Disorders  ;Dementia;10;X
-Behaviors and Mental Disorders  ;Depression;12;X
-Other;ADHD;10;X
-Behaviors and Mental Disorders  ;Depressive Disorder;12;X
-Behaviors and Mental Disorders  ;Developmental Disabilities;1;X
-Behaviors and Mental Disorders  ;Disorders of Excessive Somnolence;2;X
-Behaviors and Mental Disorders  ;Disruptive, Impulse Control, and Conduct Disorders;1;X
-Behaviors and Mental Disorders  ;Drinking Behavior;2;X
-Behaviors and Mental Disorders  ;Dyslexia;1;X
-Behaviors and Mental Disorders  ;Dyspareunia;1;X
-Behaviors and Mental Disorders  ;Dyssomnias;7;X
-Behaviors and Mental Disorders  ;Enuresis;1;X
-Behaviors and Mental Disorders  ;Gambling;1;X
-Behaviors and Mental Disorders  ;Learning Disorders;1;X
-Behaviors and Mental Disorders  ;Marijuana Abuse;1;X
-Behaviors and Mental Disorders  ;Mental Disorders;41;X
-Behaviors and Mental Disorders  ;Mood Disorders;10;X
-Behaviors and Mental Disorders  ;Mutism;1;X
-Behaviors and Mental Disorders  ;Narcolepsy;2;X
-Behaviors and Mental Disorders  ;Neurobehavioral Manifestations;5;X
-Behaviors and Mental Disorders  ;Neurocognitive Disorders;12;X
-Behaviors and Mental Disorders  ;Neurodevelopmental Disorders;3;X
-Behaviors and Mental Disorders  ;Nocturnal Enuresis;1;X
-Behaviors and Mental Disorders  ;Occupational Stress;1;X
-Behaviors and Mental Disorders  ;Parasomnias;7;X
-Behaviors and Mental Disorders  ;Problem Behavior;1;X
-Behaviors and Mental Disorders  ;Psychological Trauma;1;X
-Behaviors and Mental Disorders  ;Psychotic Disorders;41;X
-Behaviors and Mental Disorders  ;Quality of Life;24;X
-Behaviors and Mental Disorders  ;Schizophrenia;4;X
-Behaviors and Mental Disorders  ;Schizophrenia Spectrum and Other Psychotic Disorders;4;X
-Behaviors and Mental Disorders  ;Sleep Disorders;8;X
-Behaviors and Mental Disorders  ;Sleep Initiation and Maintenance Disorders;2;X
-Behaviors and Mental Disorders  ;Sleep Wake Disorders;7;X
-Behaviors and Mental Disorders  ;Stress;6;X
-Behaviors and Mental Disorders  ;Substance-Related Disorders;4;X
-Behaviors and Mental Disorders  ;Trauma and Stressor Related Disorders;1;X
-Nervous System Diseases  ;Alzheimer Disease;10;X
-Nervous System Diseases  ;Amnesia;2;X
-Nervous System Diseases  ;Amyotrophic Lateral Sclerosis;1;X
-Nervous System Diseases  ;Autoimmune Diseases of the Nervous System;18;X
-Nervous System Diseases  ;Autonomic Nervous System Diseases;1;X
-Nervous System Diseases  ;Basal Ganglia Diseases;2;X
-Nervous System Diseases  ;Bell Palsy;1;X
-Nervous System Diseases  ;Brain Concussion;2;X
-Nervous System Diseases  ;Brain Damage, Chronic;1;X
-Nervous System Diseases  ;Brain Diseases;60;X
-Nervous System Diseases  ;Brain Diseases, Metabolic;2;X
-Nervous System Diseases  ;Brain Diseases, Metabolic, Inborn;2;X
-Nervous System Diseases  ;Brain Edema;1;X
-Nervous System Diseases  ;Brain Infarction;9;X
-Nervous System Diseases  ;Brain Injuries;8;X
-Nervous System Diseases  ;Brain Injuries, Traumatic;5;X
-Nervous System Diseases  ;Brain Ischemia;10;X
-Nervous System Diseases  ;Brain Neoplasms;4;X
-Nervous System Diseases  ;Cataplexy;2;X
-Nervous System Diseases  ;Central Nervous System Diseases;68;X
-Nervous System Diseases  ;Central Nervous System Neoplasms;3;X
-Nervous System Diseases  ;Cerebral Hemorrhage;2;X
-Nervous System Diseases  ;Cerebral Infarction;8;X
-Nervous System Diseases  ;Cerebral Palsy;1;X
-Nervous System Diseases  ;Cerebral Small Vessel Diseases;2;X
-Nervous System Diseases  ;Cerebrovascular Disorders;27;X
-Nervous System Diseases  ;Chronobiology Disorders;1;X
-Nervous System Diseases  ;Communication Disorders;2;X
-Nervous System Diseases  ;Complex Regional Pain Syndromes;1;X
-Nervous System Diseases  ;Confusion;1;X
-Nervous System Diseases  ;Cranial Nerve Diseases;1;X
-Nervous System Diseases  ;Craniocerebral Trauma;9;X
-Nervous System Diseases  ;Deafness;1;X
-Nervous System Diseases  ;Delirium;1;X
-Nervous System Diseases  ;Dementia;10;X
-Nervous System Diseases  ;Demyelinating Autoimmune Diseases, CNS;18;X
-Nervous System Diseases  ;Demyelinating Diseases;18;X
-Nervous System Diseases  ;Disorders of Excessive Somnolence;2;X
-Nervous System Diseases  ;Drug Resistant Epilepsy;1;X
-Nervous System Diseases  ;Dyslexia;1;X
-Nervous System Diseases  ;Dyssomnias;7;X
-Nervous System Diseases  ;Encephalitis;1;X
-Nervous System Diseases  ;Encephalomyelitis;3;X
-Nervous System Diseases  ;Epilepsy;1;X
-Nervous System Diseases  ;Fabry Disease;2;X
-Nervous System Diseases  ;Facial Injuries;1;X
-Nervous System Diseases  ;Facial Nerve Diseases;1;X
-Nervous System Diseases  ;Facial Paralysis;1;X
-Nervous System Diseases  ;Fatigue Syndrome, Chronic;3;X
-Nervous System Diseases  ;Fibromyalgia;2;X
-Nervous System Diseases  ;Head Injuries, Closed;2;X
-Nervous System Diseases  ;Headache Disorders;9;X
-Nervous System Diseases  ;Hearing Disorders;1;X
-Nervous System Diseases  ;Hearing Loss;1;X
-Nervous System Diseases  ;Hematoma;1;X
-Nervous System Diseases  ;Hydrocephalus;3;X
-Nervous System Diseases  ;Infratentorial Neoplasms;1;X
-Nervous System Diseases  ;Intracranial;18;X
-Nervous System Diseases  ;Ischemic Attack, Transient;3;X
-Nervous System Diseases  ;Jaw Fractures;1;X
-Nervous System Diseases  ;Language Disorders;2;X
-Nervous System Diseases  ;Learning Disorders;1;X
-Nervous System Diseases  ;Mandibular Fractures;1;X
-Nervous System Diseases  ;Maxillofacial Injuries;1;X
-Nervous System Diseases  ;Meningitis;2;X
-Nervous System Diseases  ;Meningitis, Meningococcal;1;X
-Nervous System Diseases  ;Migraine Disorders;8;X
-Nervous System Diseases  ;Mononeuropathies;1;X
-Nervous System Diseases  ;Motor Neuron Disease;1;X
-Nervous System Diseases  ;Movement Disorders;2;X
-Nervous System Diseases  ;Multiple Sclerosis;18;X
-Nervous System Diseases  ;Muscle Cramp;1;X
-Nervous System Diseases  ;Muscular Atrophy;1;X
-Nervous System Diseases  ;Muscular Diseases;9;X
-Nervous System Diseases  ;Mutism;1;X
-Nervous System Diseases  ;Narcolepsy;2;X
-Nervous System Diseases  ;Nervous System Neoplasms;3;X
-Nervous System Diseases  ;Neuralgia;3;X
-Nervous System Diseases  ;Neurobehavioral Manifestations;5;X
-Nervous System Diseases  ;Neurocytoma;1;X
-Nervous System Diseases  ;Neurodegenerative Diseases;11;X
-Nervous System Diseases  ;Neurologic Manifestations;41;X
-Nervous System Diseases  ;Neuromuscular Diseases;9;X
-Nervous System Diseases  ;Neuromuscular Manifestations;1;X
-Nervous System Diseases  ;Neurotoxicity Syndromes;1;X
-Nervous System Diseases  ;Optic Nerve Diseases;1;X
-Nervous System Diseases  ;Paralysis;3;X
-Nervous System Diseases  ;Parasomnias;7;X
-Nervous System Diseases  ;Parkinson Disease;2;X
-Nervous System Diseases  ;Parkinsonian Disorders;2;X
-Nervous System Diseases  ;Peripheral Nervous System Diseases;5;X
-Nervous System Diseases  ;Polyneuropathies;1;X
-Nervous System Diseases  ;Primary Dysautonomias;1;X
-Nervous System Diseases  ;Radiculopathy;1;X
-Nervous System Diseases  ;Reflex Sympathetic Dystrophy;1;X
-Nervous System Diseases  ;Sarcopenia;1;X
-Nervous System Diseases  ;Sciatic Neuropathy;1;X
-Nervous System Diseases  ;Sciatica;1;X
-Nervous System Diseases  ;Seizures;1;X
-Nervous System Diseases  ;Sensation Disorders;3;X
-Nervous System Diseases  ;Skull Fractures;1;X
-Nervous System Diseases  ;Sleep Apnea;6;X
-Nervous System Diseases  ;Sleep Disorders;8;X
-Nervous System Diseases  ;Sleep Initiation and Maintenance Disorders;2;X
-Nervous System Diseases  ;Sleep Wake Disorders;7;X
-Nervous System Diseases  ;Spasm;1;X
-Nervous System Diseases  ;Speech Disorders;1;X
-Nervous System Diseases  ;Sphingolipidoses;2;X
-Nervous System Diseases  ;Spinal Cord Diseases;3;X
-Nervous System Diseases  ;Spinal Cord Injuries;2;X
-Nervous System Diseases  ;Strabismus;1;X
-Nervous System Diseases  ;Stroke;25;X
-Nervous System Diseases  ;Subarachnoid Hemorrhage;4;X
-Nervous System Diseases  ;Tauopathies;8;X
-Nervous System Diseases  ;TDP-43 Proteinopathies;1;X
-Nervous System Diseases  ;Torticollis;1;X
-Nervous System Diseases  ;Trauma, Nervous System;11;X
-Nervous System Diseases  ;Vision Disorders;2;X
-Nervous System Diseases  ;Vision, Low;2;X
-Substance Related Disorders  ;Alcohol-Induced Disorders;1;X
-Substance Related Disorders  ;Alcohol-Related Disorders;3;X
-Substance Related Disorders  ;Alcoholism;2;X
-Substance Related Disorders  ;Cardiotoxicity;1;X
-Substance Related Disorders  ;Chemically-Induced Disorders;6;X
-Substance Related Disorders  ;Drug-Related Side Effects and Adverse Reactions;1;X
-Substance Related Disorders  ;Fetal Alcohol Spectrum Disorders;1;X
-Substance Related Disorders  ;Neurotoxicity Syndromes;1;X
-Substance Related Disorders  ;Pancreatitis, Alcoholic;1;X
-Substance Related Disorders  ;Poisoning;1;X
-Substance Related Disorders  ;Substance-Related Disorders;4;X
-Cancers and Other Neoplasms  ;Astrocytoma;3;X
-Cancers and Other Neoplasms  ;Bone Cysts;1;X
-Cancers and Other Neoplasms  ;Bone Neoplasms;1;X
-Cancers and Other Neoplasms  ;Brain Neoplasms;4;X
-Cancers and Other Neoplasms  ;Central Nervous System Neoplasms;3;X
-Cancers and Other Neoplasms  ;Cervical Intraepithelial Neoplasia;3;X
-Cancers and Other Neoplasms  ;Cysts;2;X
-Cancers and Other Neoplasms  ;Endocrine Gland Neoplasms;21;X
-Cancers and Other Neoplasms  ;Fibroma;1;X
-Cancers and Other Neoplasms  ;Ganglioglioma;1;X
-Cancers and Other Neoplasms  ;Ganglion Cysts;2;X
-Cancers and Other Neoplasms  ;Ganglioneuroma;1;X
-Cancers and Other Neoplasms  ;Glioblastoma;3;X
-Cancers and Other Neoplasms  ;Glioma;4;X
-Cancers and Other Neoplasms  ;Head and Neck Neoplasms;7;X
-Cancers and Other Neoplasms  ;Histiocytoma, Malignant Fibrous;1;X
-Cancers and Other Neoplasms  ;Infratentorial Neoplasms;1;X
-Cancers and Other Neoplasms  ;Lymphoma;50;X
-Cancers and Other Neoplasms  ;Neoplasms, Nerve Tissue;18;X
-Cancers and Other Neoplasms  ;Neoplasms, Neuroepithelial;4;X
-Cancers and Other Neoplasms  ;Nervous System Neoplasms;3;X
-Cancers and Other Neoplasms  ;Neurocytoma;1;X
-Cancers and Other Neoplasms  ;Neuroectodermal Tumors;17;X
-Cancers and Other Neoplasms  ;Neuroendocrine Tumors;13;X
-Cancers and Other Neoplasms  ;Oligodendroglioma;1;X
-Cancers and Other Neoplasms  ;Osteosarcoma;2;X
-Cancers and Other Neoplasms  ;Respiratory Tract Neoplasms;13;X
-Other;Psychiatry;50;X
-Other;Autism;50;X
+﻿Conditions;Studies
+Abdominal Neoplasms;2
+Adenocarcinoma;26
+Adenocarcinoma in Situ;1
+Adenoma;1
+Angiokeratoma;1
+Astrocytoma;3
+Bone Cysts;1
+Bone Marrow Neoplasms;4
+Bone Neoplasms;1
+Brain Neoplasms;4
+Breast Neoplasms;28
+Bronchial Neoplasms;11
+Burkitt Lymphoma;1
+Carcinoma;59
+Central Nervous System Neoplasms;3
+Cervical Intraepithelial Neoplasia;2
+Cholangiocarcinoma;3
+Colonic Neoplasms;5
+Colorectal Neoplasms;16
+Cystadenocarcinoma;1
+Cystadenocarcinoma, Serous;2
+Cysts;2
+Digestive System Neoplasms;28
+Dupuytren Contracture;1
+Endocrine Gland Neoplasms;20
+Endometrial Neoplasms;2
+Esophageal Neoplasms;1
+Fallopian Tube Neoplasms;6
+Fibroma;1
+Ganglioglioma;1
+Ganglion Cysts;4
+Ganglioneuroma;1
+Gastrointestinal Neoplasms;28
+Gastrointestinal Stromal Tumors;2
+Genital Neoplasms, Female;17
+Genital Neoplasms, Male;35
+Glioblastoma;3
+Glioma;4
+Head and Neck Neoplasms;7
+Heart Neoplasms;1
+Hematologic Neoplasms;5
+Histiocytoma, Malignant Fibrous;1
+Infratentorial Neoplasms;1
+Intestinal Neoplasms;16
+Kidney Neoplasms;13
+Leiomyoma;3
+Leiomyosarcoma;1
+Leukemia;34
+Liposarcoma;1
+Liver Neoplasms;3
+Lung Neoplasms;16
+Lymphoma;32
+Melanoma;9
+Mesothelioma;2
+Multiple Myeloma;11
+Myofibroma;3
+Neoplasm Metastasis;23
+Neoplasm, Residual;4
+Neoplasms by Histologic Type;126
+Neoplasms, Basal Cell;1
+Neoplasms, Bone Tissue;1
+Neoplasms, Connective and Soft Tissue;9
+Neoplasms, Connective Tissue;6
+Neoplasms, Cystic, Mucinous, and Serous;1
+Neoplasms, Fibrous Tissue;1
+Neoplasms, Germ Cell and Embryonal;17
+Neoplasms, Glandular and Epithelial;49
+Neoplasms, Mesothelial;1
+Neoplasms, Nerve Tissue;17
+Neoplasms, Neuroepithelial;5
+Neoplasms, Plasma Cell;11
+Neoplasms, Second Primary;2
+Neoplasms, Squamous Cell;3
+Neoplasms, Unknown Primary;1
+Neoplastic Processes;12
+Nervous System Neoplasms;3
+Neuroblastoma;1
+Neurocytoma;1
+Neuroectodermal Tumors;16
+Neuroectodermal Tumors, Primitive;16
+Neuroectodermal Tumors, Primitive, Peripheral;1
+Neuroendocrine Tumors;11
+Nevi and Melanomas;8
+Nevus;8
+Nevus, Pigmented;8
+Oligodendroglioma;1
+Osteosarcoma;2
+Ovarian Cysts;1
+Ovarian Neoplasms;17
+Pancreatic Neoplasms;7
+Penile Neoplasms;1
+Peritoneal Neoplasms;2
+Polycythemia Vera;3
+Precancerous Conditions;7
+Precursor Cell Lymphoblastic Leukemia-Lymphoma;11
+Precursor T-Cell Lymphoblastic Leukemia-Lymphoma;2
+Preleukemia;10
+Prostatic Neoplasms;36
+Rectal Neoplasms;7
+Respiratory Tract Neoplasms;13
+Sarcoma;3
+Small Cell Lung Carcinoma;2
+Squamous Cell Carcinoma of Head and Neck;3
+Stomach Neoplasms;2
+Synovial Cyst;4
+Testicular Neoplasms;1
+Thoracic Neoplasms;14
+Thyroid Neoplasms;1
+Triple Negative Breast Neoplasms;4
+Urinary Bladder Neoplasms;10
+Urogenital Neoplasms;71
+Urologic Neoplasms;20
+Uterine Cervical Neoplasms;1
+Uterine Neoplasms;3
